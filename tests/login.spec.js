@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 import LoginPage from '../pages/login.page';
-import DashPage from '../pages/Dash.page';
+import DashPage from '../pages/dash.page';
 import { obterCodigo2FA } from '../support/db';
 import { cleanJobs, getJob } from '../support/redis';
 
