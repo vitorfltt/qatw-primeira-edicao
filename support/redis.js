@@ -10,8 +10,9 @@ const queueName = 'twoFactorQueue';
 const queue = new Queue(queueName, { connection });
 
 export const getJob = async () => {
-    const jobs = queue.getJobs()
+    const jobs = await queue.getJobs()
     return jobs[0].data.code;
+    
 }
 
 export const cleanJobs = async () => {
