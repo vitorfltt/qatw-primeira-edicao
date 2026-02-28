@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'mcr.microsoft.com/playwright:v1.58.2-noble'
+            image 'papitodev/playwright-nj-v1.49.1-noble'
             args '--network qatw-primeira-edicao_skynet'
         }
     }
@@ -16,6 +16,7 @@ pipeline {
         stage('Teste e2e') {
             steps {
                 sh 'npx playwright test'
+                allure includeProperties: false, jdk: '', resultPolicy: 'LEAVE_AS_IS', results: [[path: 'allure-results']]
             }
         }
     }
