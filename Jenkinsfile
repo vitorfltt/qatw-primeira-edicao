@@ -1,7 +1,7 @@
 pipeline {
     agent {
         docker {
-            image 'vitorfltt/playwright-nj-v1.50.1-noble'
+            image 'vitorfltt/playwright-nj-v1.58.2-noble'
             args '--network qatw-primeira-edicao_skynet'
         }
     }

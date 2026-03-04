@@ -1,5 +1,5 @@
 # Usando a imagem base Playwright
-FROM mcr.microsoft.com/playwright:v1.50.1-noble
+FROM mcr.microsoft.com/playwright:v1.58.2-noble
 
 # Instalando dependências e o OpenJDK 21
 RUN apt-get update && apt-get install -y \
