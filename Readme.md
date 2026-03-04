@@ -1,62 +1,58 @@
-🚀 Automação E2E com Playwright, Docker e Jenkins
+# QA - Playwright Pipeline
 
-Este projeto contém uma automação de testes end-to-end utilizando Playwright, totalmente integrada com Docker, Jenkins e relatórios Allure.
-Também inclui integração com PostgreSQL (pgAdmin) e consumo de fila no Redis, permitindo testar fluxos completos de backend + frontend.
+[![Build Status](https://img.shields.io/badge/build-passing-brightgreen)](https://github.com/vitorfltt/qatw-primeira-edicao)
+[![Playwright](https://img.shields.io/badge/playwright-1.58.2-blue)](https://playwright.dev/)
+[![Docker](https://img.shields.io/badge/docker-enabled-blue)](https://www.docker.com/)
+[![License](https://img.shields.io/badge/license-MIT-lightgrey)](LICENSE)
 
-🧰 Tecnologias utilizadas
+Automação E2E com **Playwright**, **Docker** e **Jenkins**, incluindo integração com PostgreSQL, Redis e relatórios Allure. Permite testar fluxos completos de **frontend e backend** de forma confiável e reprodutível.
 
-Playwright (Test Runner + Chromium)
+---
 
-Node.js
+## Tecnologias Utilizadas
 
-Docker & Docker Compose
+- **Playwright** (Test Runner + Chromium)
+- **Node.js**
+- **Docker & Docker Compose**
+- **Jenkins** (Pipeline declarativo)
+- **Allure Reports**
+- **PostgreSQL + pgAdmin**
+- **Redis**
 
-Jenkins (pipeline declarativo)
+---
 
-Allure Reports
+## Arquitetura
 
-PostgreSQL + pgAdmin
+- **Page Objects** – `/pages`
+- **Cenários de Teste** – `/tests`
+- **Helpers, Factories, Massa de Dados** – `/support`
+- **Utilitários Gerais** – `/utils`
+- **Configuração do Playwright** – `/playwright.config.js`
+- **Dockerfile** – Build da imagem customizada do Playwright
+- **Docker Compose** – Subida dos serviços auxiliares
+- **Jenkinsfile** – Pipeline CI/CD
 
-Redis
+---
 
-Arquitetura Page Objects
+## Como Rodar com Docker (tudo em um bloco para copiar e colar)
 
-📁 Estrutura do Projeto
-/tests              → Cenários de teste
-/pages              → Page Objects
-/support            → Helpers, factories, massa de dados
-/utils              → Utilidades gerais
-/playwright.config  → Configurações do Playwright
-/dockerfile         → Build da imagem Playwright customizada
-/docker-compose.yml → Subida dos serviços auxiliares
-/Jenkinsfile        → Pipeline CI/CD
-🐳 Como rodar com Docker
-1. Build da imagem
+```bash
+# 1. Build da imagem personalizada
 docker build -t vitorfltt/playwright-nj-v1.58.2-noble .
-2. Subir os serviços (pgAdmin, PostgreSQL, Redis)
+
+# 2. Subir serviços auxiliares (pgAdmin, PostgreSQL, Redis)
 docker-compose up -d
-3. Executar os testes
+
+# 3. Executar testes
 npx playwright test
-🤖 Pipeline no Jenkins
 
-O pipeline executa:
+# Pipeline no Jenkins (manual se precisar rodar localmente)
+# Checkout do repositório
+# Instalação das dependências
+# Execução dos testes Playwright
+# Geração do relatório Allure
+# Publicação automática no Jenkins
 
-Checkout do repositório
-
-Instalação das dependências
-
-Execução dos testes Playwright
-
-Geração do relatório Allure
-
-Publicação automática no Jenkins
-
-Tudo isso rodando dentro da imagem Docker do Playwright, garantindo reprodutibilidade.
-
-📊 Relatórios
-
-Após a execução dos testes, os relatórios Allure ficam dentro de:
-
+# 4. Relatórios (local)
+# Caminho dos relatórios Allure após execução
 allure-results/
-
-E o Jenkins publica automaticamente a visualização.
